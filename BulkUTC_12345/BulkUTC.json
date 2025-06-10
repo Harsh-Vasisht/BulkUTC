@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "utcSettings": {
+    "defaultTimeZone": "UTC",
+    "useSystemTime": true,
+    "dateFormat": "YYYY-MM-DD HH:mm:ss",
+    "timeServerSyncInterval": 3600,
+    "handleDaylightSaving": true,
+    "timeServer": {
+      "url": "pool.ntp.org",
+      "authenticationRequired": false,
+      "timeout": 5000
+    }
+  },
+  "bulkOperations": {
+    "maxConcurrentOperations": 10,
+    "retryAttempts": 3,
+    "retryDelay": 5000,
+    "allowedTimeRanges": [
+      {
+        "start": "00:00",
+        "end": "06:00"
+      },
+      {
+        "start": "22:00",
+        "end": "23:59"
+      }
+    ],
+    "performanceThresholds": {
+      "maxResponseTime": 2000,
+      "maxCpuUsage": 80,
+      "maxMemoryUsage": 70
+    }
+  },
+  "regions": [
+    {
+      "name": "Europe",
+      "timeZone": "Europe/London",
+      "daylightSavingAdjustment": true
+    },
+    {
+      "name": "US East",
+      "timeZone": "America/New_York",
+      "daylightSavingAdjustment": true
+    },
+    {
+      "name": "Asia Pacific",
+      "timeZone": "Asia/Tokyo",
+      "daylightSavingAdjustment": false
+    }
+  ],
+  "logging": {
+    "level": "INFO",
+    "retentionDays": 30,
+    "includeTimezone": true,
+    "logFormat": "${timestamp} [${level}] ${message}"
+  },
+  "errorHandling": {
+    "notificationEmail": "admin@example.com",
+    "maxErrorsBeforeShutdown": 100,
+    "errorCooldownPeriod": 300
+  }
+}

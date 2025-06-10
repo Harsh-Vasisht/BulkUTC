@@ -1,0 +1,54 @@
+{
+  "environment": "development",
+  "database": {
+    "host": "localhost",
+    "port": 3306,
+    "username": "db_user",
+    "password": "db_password",
+    "name": "bulk_utc_db"
+  },
+  "api": {
+    "base_url": "https://api.example.com",
+    "version": "v1",
+    "key": "your_api_key_here"
+  },
+  "logging": {
+    "level": "info",
+    "file": "/var/log/bulk_utc.log"
+  },
+  "security": {
+    "secret_key": "your_secret_key_here",
+    "allowed_origins": ["http://localhost:3000", "https://example.com"]
+  },
+  "microservices": {
+    "discovery_service": "http://discovery:8761/eureka/",
+    "timeout": 30000
+  },
+  "caching": {
+    "redis": {
+      "host": "redis",
+      "port": 6379
+    }
+  },
+  "third_party_services": {
+    "email": {
+      "smtp_host": "smtp.example.com",
+      "smtp_port": 587,
+      "username": "email_user",
+      "password": "email_password"
+    },
+    "payment_gateway": {
+      "provider": "stripe",
+      "public_key": "pk_test_your_public_key",
+      "private_key": "sk_test_your_private_key"
+    }
+  },
+  "performance": {
+    "max_connections": 100,
+    "request_timeout": 5000
+  },
+  "feature_flags": {
+    "new_user_registration": true,
+    "maintenance_mode": false
+  }
+}

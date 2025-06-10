@@ -1,0 +1,32 @@
+// Define the root project name
+rootProject.name = 'BulkUTC_12345'
+
+// Include all subprojects (modules) in the build
+include 'library'
+include 'shopping_cart'
+include 'university'
+
+// Configure the project directory for each module
+project(':library').projectDir = file('src/library')
+project(':shopping_cart').projectDir = file('src/shopping_cart')
+project(':university').projectDir = file('src/university')
+
+// Optional: Add any global build logic or configuration here
+// For example, you could define a function to apply common configuration to all projects
+def configureCommonSettings = { project ->
+    project.apply plugin: 'java'
+    project.sourceCompatibility = JavaVersion.VERSION_11
+    project.targetCompatibility = JavaVersion.VERSION_11
+}
+
+// Apply the common configuration to all projects
+allprojects {
+    configureCommonSettings(it)
+}
+
+// Optional: Add any other global settings or configurations as needed
+// For example, you could configure the Gradle wrapper version
+wrapper {
+    gradleVersion = '7.4'
+    distributionType = Wrapper.DistributionType.ALL
+}
